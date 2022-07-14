@@ -33,10 +33,14 @@ class AdminUserService
     public function login($data)
     {
         if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+            $user = $this->adminUserServiceInterface->loginUser($data['email']);
+            $token = $user->createToken('myapptoken')->plainTextToken;
             return [
                 'status' => true,
                 'message' => 'Successfully logged in',
-                'data' => null
+                'data' => [
+                    'token' => $token,
+                ],
             ];
         } else {
             return [
@@ -57,5 +61,10 @@ class AdminUserService
         return $this->adminUserServiceInterface->passwordUpdate($newPassword);
 
 
+    }
+
+    public function logout($request)
+    {
+        return $this->adminUserServiceInterface->logout($request);
     }
 }

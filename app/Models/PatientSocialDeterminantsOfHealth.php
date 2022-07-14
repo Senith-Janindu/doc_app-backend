@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PatientGoal extends Model
+class PatientSocialDeterminantsOfHealth extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,10 @@ class PatientGoal extends Model
 
     protected $fillable = [
         'mobile_number',
-        'selected_goal',
-        'selected_behaviour_change'
+        'agreeableness_level',
+        'extraversion_level',
+        'conciousnes_level',
+        'openness_level',
+        'neuroticism_level'
     ];
 }

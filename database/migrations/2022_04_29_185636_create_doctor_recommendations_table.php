@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id()->unique();
             $table->bigInteger('mobile_number');
             $table->foreign('mobile_number')->references('mobile_number')->on('patients');
-            $table->string('recommendation')->nullable();
+            $table->longText('recommendation')->nullable();
         });
     }
 

@@ -23,7 +23,8 @@ class PatientMedicalRatio extends Model
         'bp',
         'lipid_pannel',
         'a1c',
-        'current_health_status'
+        'current_health_status',
+        'anyone_in_family_overweight'
     ];
 
 //    public function getPatientMedicalRatioByPhoneNumber(): HasOne

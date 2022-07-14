@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('patient_goals', function (Blueprint $table) {
-            $table->bigInteger('mobile_number')->unique();
-            $table->foreign('mobile_number')->references('mobile_number')->on('patients');
-            $table->string('selected_goal');
-            $table->string('selected_behaviour_change');
+        Schema::create('video_urls', function (Blueprint $table) {
+            $table->id();
+            $table->string('video_id');
+            $table->string('video_cat');
+            $table->string('video_cat_type');
+            $table->string('video_url');
+            $table->string('video_desc');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('patient_goals');
+        Schema::dropIfExists('video_urls');
     }
 };

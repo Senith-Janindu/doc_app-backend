@@ -46,4 +46,19 @@ class AdminUserRepository implements AdminUserServiceInterface
             return 'user not found';
         }
     }
+
+    public function loginUser($email): mixed
+    {
+        return User::where('email', $email)->first();
+    }
+
+    public function logout($request)
+    {
+        try {
+            return $request->user()->currentAccessToken()->delete();
+        }catch (\Exception $e) {
+            return $e->getMessage();
+        }
+
+    }
 }

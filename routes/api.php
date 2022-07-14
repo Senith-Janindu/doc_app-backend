@@ -28,6 +28,11 @@ Route::group([
     Route::post('/register', [AdminUserController::class, 'register']);
     Route::post('/login', [AdminUserController::class, 'login']);
     Route::post('/passwordUpdate', [AdminUserController::class, 'passwordUpdate']);
+    Route::group([
+        'middleware' => 'auth:sanctum',
+    ], function () {
+        Route::post('logout', [AdminUserController::class, 'logout']);
+    });
 });
 Route::group([
     'prefix' => 'patient',
@@ -42,10 +47,20 @@ Route::group([
     Route::post('/addPatientDailyStatus', [PatientController::class, 'addPatientDailyStatus']);
     Route::get('/getPatientDailyStatus', [PatientController::class, 'getPatientDailyStatus']);
     Route::post('/addWeightLoseGoalDetails', [PatientController::class, 'addWeightLoseGoalDetails']);
-    Route::post('/getWeightLoseGoalDetailsByMobileNumber', [PatientController::class, 'get0WeightLoseGoalDetailsByMobileNumber']);
+    Route::post('/getWeightLoseGoalDetailsByMobileNumber', [PatientController::class, 'getWeightLoseGoalDetailsByMobileNumber']);
     Route::post('/addDoctorRecommendation', [PatientController::class, 'addDoctorRecommendation']);
     Route::post('/getPreviousRecommendationByMobileNumber', [PatientController::class, 'getPreviousRecommendationByMobileNumber']);
     Route::post('/getDailyStatus', [PatientController::class, 'getDailyStatus']);
     Route::post('/editPatientByMobileNumber', [PatientController::class, 'editPatientByMobileNumber']);
-
+    Route::post('/addPatientRecommendedTask', [PatientController::class, 'addPatientRecommendedTask']);
+    Route::post('/getPatientRecommendedTask', [PatientController::class, 'getPatientRecommendedTask']);
+    Route::post('/checkRecommendedTaskStatus', [PatientController::class, 'checkRecommendedTaskStatus']);
+    Route::post('/getPatientPreviousRecommendedTask', [PatientController::class, 'getPatientPreviousRecommendedTask']);
+    Route::post('/patientFollowUp', [PatientController::class, 'patientFollowUp']);
+    Route::post('/getPatientFollowUpDetailsByMobileNumber', [PatientController::class, 'getPatientFollowUpDetailsByMobileNumber']);
+    Route::post('/getPatientDailyStatusByMobileNumber', [PatientController::class, 'getPatientDailyStatusByMobileNumber']);
+    Route::post('/getPatientNoFollowRec', [PatientController::class, 'getPatientNoFollowRec']);
+    Route::post('/getAllPatientByFollowRec', [PatientController::class, 'getAllPatientByFollowRec']);
+    Route::get('/getAlert', [PatientController::class, 'getAlert']);
+    Route::post('/getVideoUrlByVideoId', [PatientController::class, 'getVideoUrlByVideoId']);
 });

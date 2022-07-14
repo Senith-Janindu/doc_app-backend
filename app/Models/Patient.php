@@ -11,7 +11,7 @@ class Patient extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+//    public $timestamps = false;
 
     protected $primaryKey = 'mobile_number';
 
@@ -21,6 +21,7 @@ class Patient extends Model
         'last_name',
         'dob',
         'age',
+        'gender',
         'ethnicity',
         'relationship_status',
         'highest_education'
@@ -29,6 +30,11 @@ class Patient extends Model
     public function getPatientMedicalRatio(): HasOne
     {
         return $this->hasOne(PatientMedicalRatio::class,'mobile_number');
+    }
+
+    public function getPatientSocialDeterminantsOfHealth(): HasOne
+    {
+        return $this->hasOne(PatientSocialDeterminantsOfHealth::class,'mobile_number');
     }
 
     public function getPatientTechnologicalLiteracy(): HasOne

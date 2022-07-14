@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('previous_goal_details', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('mobile_number')->unique();
+            $table->bigInteger('mobile_number');
             $table->foreign('mobile_number')->references('mobile_number')->on('patients');
             $table->integer('goal_id');
 //            $table->foreign('goal_id')->references('goal_id')->on('patient_goals');

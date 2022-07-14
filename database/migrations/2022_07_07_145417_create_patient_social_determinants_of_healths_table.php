@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('patient_goals', function (Blueprint $table) {
+        Schema::create('patient_social_determinants_of_healths', function (Blueprint $table) {
+            $table->id();
             $table->bigInteger('mobile_number')->unique();
             $table->foreign('mobile_number')->references('mobile_number')->on('patients');
-            $table->string('selected_goal');
-            $table->string('selected_behaviour_change');
+            $table->integer('agreeableness_level');
+            $table->integer('extraversion_level');
+            $table->integer('conciousnes_level');
+            $table->integer('openness_level');
+            $table->integer('neuroticism_level');
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('patient_goals');
+        Schema::dropIfExists('patient_social_determinants_of_healths');
     }
 };
