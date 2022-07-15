@@ -99,9 +99,9 @@ class PatientRepository implements PatientServiceInterface
                 $newUser->fill($patientSocialDeterminantsOfHealth);
                 $newUser->save();
 
-                $newUser = new PatientTechnologicalLiteracy();
-                $newUser->fill($technologyLiteracy);
-                $newUser->save();
+                // $newUser = new PatientTechnologicalLiteracy();
+                // $newUser->fill($technologyLiteracy);
+                // $newUser->save();
 
                 $newUser = new PatientGoal();
                 $newUser->fill($goal);
@@ -188,15 +188,15 @@ class PatientRepository implements PatientServiceInterface
                     ]
                 );
 
-                PatientTechnologicalLiteracy::where(['mobile_number' => $userPhone])->update(
-                    [
-                        'download_use_skill_level' => $technologyLiteracy['download_use_skill_level'],
-                        'search_online_skill_level' => $technologyLiteracy['search_online_skill_level'],
-                        'social_media_skill_level' => $technologyLiteracy['social_media_skill_level'],
-                        'email_usage_skill_level' => $technologyLiteracy['email_usage_skill_level'],
-                        'online_credit_card_usage_skill_level' => $technologyLiteracy['online_credit_card_usage_skill_level']
-                    ]
-                );
+                // PatientTechnologicalLiteracy::where(['mobile_number' => $userPhone])->update(
+                //     [
+                //         'download_use_skill_level' => $technologyLiteracy['download_use_skill_level'],
+                //         'search_online_skill_level' => $technologyLiteracy['search_online_skill_level'],
+                //         'social_media_skill_level' => $technologyLiteracy['social_media_skill_level'],
+                //         'email_usage_skill_level' => $technologyLiteracy['email_usage_skill_level'],
+                //         'online_credit_card_usage_skill_level' => $technologyLiteracy['online_credit_card_usage_skill_level']
+                //     ]
+                // );
 
                 PatientGoal::where(['mobile_number' => $userPhone])->update(
                     [
@@ -229,10 +229,11 @@ class PatientRepository implements PatientServiceInterface
             $patient1 = Patient::find($mobile_number)->toArray();
             $patient2 = Patient::find($mobile_number)->getPatientMedicalRatio->toArray();
             $patient3 = Patient::find($mobile_number)->getPatientSocialDeterminantsOfHealth->toArray();
-            $patient4 = Patient::find($mobile_number)->getPatientTechnologicalLiteracy->toArray();
+            // $patient4 = Patient::find($mobile_number)->getPatientTechnologicalLiteracy->toArray();
             $patient5 = Patient::find($mobile_number)->getPatientGoal->toArray();
 
-            return array_merge($patient1, $patient2, $patient3, $patient4, $patient5);
+            // return array_merge($patient1, $patient2, $patient3, $patient4, $patient5);
+            return array_merge($patient1, $patient2, $patient3, $patient5);
 
 //            $patientDataArray['first_name'] = $patient1->first_name;
 //            dd($patientDataArray);

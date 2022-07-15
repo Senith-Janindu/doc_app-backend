@@ -121,12 +121,12 @@ class PatientService
         ];
 
         $technologyLiteracy = [
-            'mobile_number' => $request['mobile_number'],
-            'download_use_skill_level' => $request['download_use_skill_level'],
-            'search_online_skill_level' => $request['search_online_skill_level'],
-            'social_media_skill_level' => $request['social_media_skill_level'],
-            'email_usage_skill_level' => $request['email_usage_skill_level'],
-            'online_credit_card_usage_skill_level' => $request['online_credit_card_usage_skill_level'],
+            // 'mobile_number' => $request['mobile_number'],
+            // 'download_use_skill_level' => $request['download_use_skill_level'],
+            // 'search_online_skill_level' => $request['search_online_skill_level'],
+            // 'social_media_skill_level' => $request['social_media_skill_level'],
+            // 'email_usage_skill_level' => $request['email_usage_skill_level'],
+            // 'online_credit_card_usage_skill_level' => $request['online_credit_card_usage_skill_level'],
         ];
 
         $goal = [
@@ -202,12 +202,12 @@ class PatientService
         ];
 
         $technologyLiteracy = [
-            'mobile_number' => $request['mobile_number'],
-            'download_use_skill_level' => $request['download_use_skill_level'],
-            'search_online_skill_level' => $request['search_online_skill_level'],
-            'social_media_skill_level' => $request['social_media_skill_level'],
-            'email_usage_skill_level' => $request['email_usage_skill_level'],
-            'online_credit_card_usage_skill_level' => $request['online_credit_card_usage_skill_level'],
+            // 'mobile_number' => $request['mobile_number'],
+            // 'download_use_skill_level' => $request['download_use_skill_level'],
+            // 'search_online_skill_level' => $request['search_online_skill_level'],
+            // 'social_media_skill_level' => $request['social_media_skill_level'],
+            // 'email_usage_skill_level' => $request['email_usage_skill_level'],
+            // 'online_credit_card_usage_skill_level' => $request['online_credit_card_usage_skill_level'],
         ];
 
         $goal = [
