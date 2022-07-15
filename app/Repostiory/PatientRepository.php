@@ -228,8 +228,16 @@ class PatientRepository implements PatientServiceInterface
 
             $patient1 = Patient::find($mobile_number)->toArray();
             $patient2 = Patient::find($mobile_number)->getPatientMedicalRatio->toArray();
+<<<<<<< Updated upstream
             $patient3 = Patient::find($mobile_number)->getPatientSocialDeterminantsOfHealth->toArray();
             // $patient4 = Patient::find($mobile_number)->getPatientTechnologicalLiteracy->toArray();
+=======
+            $patient3 = [];
+            if(Patient::find($mobile_number)->getPatientSocialDeterminantsOfHealth != null){
+                $patient3 = Patient::find($mobile_number)->getPatientSocialDeterminantsOfHealth->toArray();
+            }
+            $patient4 = Patient::find($mobile_number)->getPatientTechnologicalLiteracy->toArray();
+>>>>>>> Stashed changes
             $patient5 = Patient::find($mobile_number)->getPatientGoal->toArray();
 
             // return array_merge($patient1, $patient2, $patient3, $patient4, $patient5);
